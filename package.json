@@ -1,6 +1,6 @@
 {
   "name": "ugly-assets",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Watch, lint and build your .js and .less assets.",
   "main": "./index.js",
   "bin" : "./index.js",
