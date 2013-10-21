@@ -1,0 +1,16 @@
+{
+  "name": "ugly-assets",
+  "version": "0.0.1",
+  "description": "Watch, lint and build your .js and .less assets.",
+  "main": "index.js",
+  "bin" : "./index.js",
+  "author": "Reza Akhavan",
+  "license": "MIT",
+  "dependencies": {
+    "watchr": "~2.4.4",
+    "uglify-js": "~2.4.0",
+    "recess": "~1.1.9",
+    "findit2": "~0.2.0",
+    "jshint": "~2.3.0"
+  }
+}
