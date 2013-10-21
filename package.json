@@ -2,8 +2,19 @@
   "name": "ugly-assets",
   "version": "0.0.1",
   "description": "Watch, lint and build your .js and .less assets.",
-  "main": "index.js",
+  "main": "./index.js",
   "bin" : "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jedireza/ugly-assets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jedireza/ugly-assets/issues"
+  },
+  "contributors": [{
+    "name": "Reza Akhavan",
+    "email": "jedireza@gmail.com"
+  }],
   "author": "Reza Akhavan",
   "license": "MIT",
   "dependencies": {
