@@ -107,10 +107,10 @@ var compileJS = function(filePath) {
     '--output', jsMinPath,
     '--source-map', jsMapPath,
     '--source-map-root', '/',
-    '--prefix', '1',
+    '--prefix', 'relative',
     '--source-map-url', jsMapName
   ];
-  
+  console.log(args);
   var uglycmd = cp.spawn(createCommand(__dirname +'/node_modules/.bin/uglifyjs'), args);
   uglycmd.stdout.on('data', function(d) { process.stdout.write(d); });
   uglycmd.stderr.on('data', function(d) { process.stderr.write(d); });
