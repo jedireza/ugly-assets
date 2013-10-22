@@ -7,10 +7,25 @@ var watchr = require('watchr'),
     fs = require('fs'),
     cp = require('child_process');
 
+var correctPath = function(path) {
+  if (/^win/.test(process.platform)) {
+    return path.replace(/\//g, '\\');
+  }
+  return path;
+};
+
+var createCommand = function(command) {
+  if (/^win/.test(process.platform)) {
+    correctPath(command) + '.cmd';
+  }
+  return command;
+};
+
 var jshintrc;
-fs.exists(process.cwd() + '/.jshintrc', function(exists) {
+var jshintpath = correctPath(process.cwd() + '/.jshintrc');
+fs.exists(jshintpath, function(exists) {
   if (exists) {
-    jshintrc = process.cwd() + '/.jshintrc';
+    jshintrc = jshintpath;
   }
 });
 
@@ -25,12 +40,12 @@ watchr.watch({
 });
 
 var build = function(filePath) {
-  if (/\.less/.test(filePath)) {
+  if (/\.less$/.test(filePath)) {
     lintLESS(filePath);
     compileLESS(filePath);
   }
   
-  if (/\.js/.test(filePath)) {
+  if (/\.js$/.test(filePath)) {
     lintJS(filePath);
     compileJS(filePath);
   }
@@ -102,11 +117,4 @@ var compileJS = function(filePath) {
   uglycmd.on('close', function (code) {
     console.log('UGLY [✔] Compiled: '+ filePath +' > '+ jsMinName);
   });
-};
-
-var createCommand = function(command) {
-  if (/^win/.test(process.platform)) {
-    return command.replace(/\//g, '\\') + '.cmd';
-  }
-  return command;
 };
