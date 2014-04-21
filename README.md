@@ -3,6 +3,8 @@ ugly-assets
 
 Watch, lint and build your `.js` and `.less` assets.
 
+[![NPM](https://nodei.co/npm/ugly-assets.png?downloads=true)](https://nodei.co/npm/ugly-assets/)
+
 ### Installation
 
 ```
